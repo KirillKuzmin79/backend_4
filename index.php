@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors = array();
   $errors['name'] = empty($_COOKIE['name_error']);
   $errors['email'] = empty($_COOKIE['email_error']);
-  $errors['gender'] = empty($_COOKIE['gender_error']);
-  $errors['limbs'] = empty($_COOKIE['limbs_error']);
-  $errors['bio'] = empty($_COOKIE['bio_error']);
-  $errors['checkbox'] = empty($_COOKIE['checkbox_error']);
-  $errors['bdate'] = empty($_COOKIE['bdate_error']);
-  $errors['superpowers'] = empty($_COOKIE['superpowers_error']);
-  $errors['data_saved'] = empty($_COOKIE['save_error']);
+  $errors['gender'] = !empty($_COOKIE['gender_error']);
+  $errors['limbs'] = !empty($_COOKIE['limbs_error']);
+  $errors['bio'] = !empty($_COOKIE['bio_error']);
+  $errors['checkbox'] = !empty($_COOKIE['checkbox_error']);
+  $errors['bdate'] = !empty($_COOKIE['bdate_error']);
+  $errors['superpowers'] = !empty($_COOKIE['superpowers_error']);
+  $errors['data_saved'] = !empty($_COOKIE['save_error']);
 
   // Массив для временного хранения сообщений пользователю.
   $messages = array();
@@ -92,11 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Выводим сообщение.
     $messages['checkbox'] = 'Согласитесь';
   }
-  // if ($errors['data_saved']) {
-  //   // Удаляем куку, указывая время устаревания в прошлом.
-  //   setcookie('save_error', '', 100000);
-  //   $messages['data_saved'] = "Ошибка отправки: " . $_COOKIE['save_error'];
-  // }
+  if ($errors['data_saved']) {
+    // Удаляем куку, указывая время устаревания в прошлом.
+    setcookie('save_error', '', 100000);
+    $messages['data_saved'] = "Ошибка отправки: " . $_COOKIE['save_error'];
+  }
 
   // Выдаем сообщение об успешном сохранении.
   if (array_key_exists('save', $_GET) && $_GET['save']) {
