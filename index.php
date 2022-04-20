@@ -92,11 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Выводим сообщение.
     $messages['checkbox'] = 'Согласитесь';
   }
-  if ($errors['data_saved']) {
-    // Удаляем куку, указывая время устаревания в прошлом.
-    setcookie('save_error', '', 100000);
-    $messages['data_saved'] = "Ошибка отправки: " . $_COOKIE['save_error'];
-  }
+  // if ($errors['data_saved']) {
+  //   // Удаляем куку, указывая время устаревания в прошлом.
+  //   setcookie('save_error', '', 100000);
+  //   $messages['data_saved'] = "Ошибка отправки: " . $_COOKIE['save_error'];
+  // }
 
   // Выдаем сообщение об успешном сохранении.
   if (array_key_exists('save', $_GET) && $_GET['save']) {
