@@ -194,9 +194,9 @@ else {
   }
 
   // Сохранение в XML-документ.
-  $user = 'u41047';
-  $pass = '43523453';
-  $db = new PDO('mysql:host=localhost;dbname=u41047', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+  $user = 'u47531';
+  $pass = '7833721';
+  $db = new PDO('mysql:host=localhost;dbname=u47531', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
   // Подготовленный запрос. Не именованные метки.
   try {
@@ -213,7 +213,7 @@ else {
     $stmt = $db->prepare("INSERT INTO person_talents SET id_person = ?, id_talent = ?");
 
     foreach ($mas as $tal) {
-      $link = mysqli_connect('localhost', $user, $pass, 'u41047');
+      $link = mysqli_connect('localhost', $user, $pass, 'u47531');
       $em = $_POST['field-email'];
       $result = mysqli_query($link, "SELECT id FROM person WHERE email='$em'");
       $str_id = mysqli_fetch_row($result);
