@@ -154,3 +154,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   setcookie('save', '1');
   header('Location: index.php');
 }
+?>
