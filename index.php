@@ -9,15 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // В суперглобальном массиве $_COOKIE PHP хранит все имена и значения куки текущего запроса.
   // Складываем признак ошибок в массив.
   $errors = array();
-  $errors['name'] = !empty($_COOKIE['name_error']);
-  $errors['email'] = !empty($_COOKIE['email_error']);
-  $errors['gender'] = !empty($_COOKIE['gender_error']);
-  $errors['limbs'] = !empty($_COOKIE['limbs_error']);
-  $errors['bio'] = !empty($_COOKIE['bio_error']);
-  $errors['checkbox'] = !empty($_COOKIE['checkbox_error']);
-  $errors['bdate'] = !empty($_COOKIE['bdate_error']);
-  $errors['superpowers'] = !empty($_COOKIE['superpowers_error']);
-  $errors['data_saved'] = !empty($_COOKIE['save_error']);
+  $errors['name'] = empty($_COOKIE['name_error']);
+  $errors['email'] = empty($_COOKIE['email_error']);
+  $errors['gender'] = empty($_COOKIE['gender_error']);
+  $errors['limbs'] = empty($_COOKIE['limbs_error']);
+  $errors['bio'] = empty($_COOKIE['bio_error']);
+  $errors['checkbox'] = empty($_COOKIE['checkbox_error']);
+  $errors['bdate'] = empty($_COOKIE['bdate_error']);
+  $errors['superpowers'] = empty($_COOKIE['superpowers_error']);
+  $errors['data_saved'] = empty($_COOKIE['save_error']);
 
   // Массив для временного хранения сообщений пользователю.
   $messages = array();
